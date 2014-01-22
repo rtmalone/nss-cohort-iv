@@ -1,0 +1,157 @@
+/* CSS */
+@import url(http://fonts.googleapis.com/css?family=Flamenco|Audiowide);
+@import url(http://fonts.googleapis.com/css?family=VT323);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('/images/debut_dark.png');
+}
+
+#mainWrap {
+  margin: auto;
+  margin-top: 60px;
+  background: linear-gradient(-34deg, #6c6c6c, #ddd);
+  width: 400px;
+  text-align: center;
+  border-radius: 30px / 20px;
+  border-style: outset;
+  box-shadow: 5px 6px 13px -3px rgba(0,0,0,1);
+  -webkit-transform: rotate(-10deg);
+}
+
+h2 {
+  color: rgb(235,22,22);
+  text-shadow: white -1px 1px;
+  margin-bottom: 10px;
+  font-family: 'Audiowide', cursive;
+  font-size: 2em;
+}
+
+#display{
+  background-color: #eff3f4;
+  border-style: ridge;
+  margin: auto;
+  font-size: 1.5em;
+  width: 250px;
+  height: 30px;
+  text-align: right;
+  padding-right: 4px;
+  padding-top: 2px;
+  box-shadow: inset 2px 2px 2px 1px rgba(0,0,0,0.5);
+  font-family: 'VT323', cursive;
+}
+
+#queue {
+  background-color: lightyellow;
+  border-style: ridge;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 1.5em;
+  width: 250px;
+  height: 60px;
+  padding-right: 4px;
+  box-shadow: inset 2px 2px 2px 1px rgba(0,0,0,0.5);
+  font-family: 'VT323', cursive;
+  text-align: left;
+}
+
+#queue li{
+  padding: 1px 4px;
+}
+
+#ulWrap{
+  margin: 10px 0px;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin: 1px;
+}
+
+.key {
+  height: 75px;
+  width: 75px;
+  background-color: #7bb2ca;
+  font-size: 1.3em;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+  border-style: none;
+  margin: 2px 0px;
+  outline: none;
+}
+
+.key:active {
+  background: rgba(123,178,202,0.5);
+}
+
+#neg {
+  border-radius: 50%;
+  background: #c7da81;
+  -webkit-transform: scale(0.8);
+}
+
+#neg:active {
+  background: rgba(199,218,129,0.5);
+}
+
+#clear {
+  border-radius: 50%;
+  background: rgba(148,57,59,0.7);
+  -webkit-transform: scale(0.8);
+}
+
+#clear:active {
+  background: rgba(148,57,59,0.4);
+}
+
+.operator, #sum {
+  height: 75px;
+  width: 75px;
+  font-size: 1.3em;
+  box-shadow: 10px 10px 10px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+  border-style: none;
+  margin: 2px 0px;
+  outline: none;
+  background: rgba(49,49,49,0.7);
+  -webkit-transform: scale(0.8);
+  border-radius: 80px / 40px 10px;
+  color: #fff;
+}
+
+#sum:active {
+  background: rgba(49,49,49,0.3);
+}
+.operator:active {
+  background: rgba(49,49,49,0.3);
+}
+
+#push {
+  background: #a2d39f
+}
+
+#push:active {
+  background: rgba(162,211,159,0.5);
+}
+/*
+input[type="button"]:disabled {
+  background: rgba(49,49,49,0.7);
+  -webkit-transform: scale(0.8);
+}
+*/
+footer {
+  text-align: right;
+  font-size:.8em;
+  font-family: 'Flamenco', cursive;
+  color: rgba(0,0,0,.4);
+  margin: 3px 8px;
+}

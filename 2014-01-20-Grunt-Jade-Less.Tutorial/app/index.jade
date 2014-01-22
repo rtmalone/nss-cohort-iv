@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Jade Turorial
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/js/vendor/jquery-1.10.2.js')
+    script(src='/js/source/main.js')
+  body
+    head
+      h1 Welcome to Jade!
+      img(src='https://pbs.twimg.com/profile_images/3216741322/6792243c609203fc884a409d4a5e07d0.jpeg')
+    #section1
+      ul
+        li a
+        li b
+        li c
+      - var firstName = "Tyler";
+      h2= firstName
+      - for(var i = 0; i < 100; i++)
+        h3= i
+    #section2
+      h2 Section 1
+      p This is paragraph 1
+      p 
+        | This is paragraph 2
+        br
+        | Addendum <i>to</i> para 2
+        span Span 1
+      footer.foot1.foot2#footerid

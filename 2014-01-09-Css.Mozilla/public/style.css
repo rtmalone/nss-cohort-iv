@@ -1,0 +1,160 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: url('images/bg-sand.png');
+}
+div#main {
+  width: 960px;
+  margin: 0px auto;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  color: #c13832;
+  font-size: 84px;
+  font-weight: 300;
+  letter-spacing: -.05em;
+  text-align: center;
+  margin: 0px;
+}
+
+h2 {
+  font-family: 'Droid Sans', sans-serif;
+  color: black;
+  font-size: 50px;
+  letter-spacing: -.05em;
+  text-align: center;
+  margin: 0px;
+}
+
+/* NAV SECTION */
+#nav-menu {
+  text-transform: uppercase;
+}
+
+nav a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  color: #484848;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav li {
+  display: inline-block;
+  padding: 12px;
+  list-style-type: none;
+}
+
+nav ul {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.pillars {
+  background: url('images/shadow.png') center bottom no-repeat;
+  padding: 0 0 36px;
+  position: relative;
+  margin: 0 auto 20px;
+}
+
+/* ACCORDIAN SECTION */
+.accordian {
+  width: 900px;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.accordian li {
+  display: inline-block;
+  width: 225px;
+  height: 380px;
+  background-color: #424f5a;
+}
+
+.accordian ul li div {
+  overflow: hidden;
+}
+
+#panel-lightbeam {
+  background: url('images/logo-lightbeam.png') -80px 20px no-repeat, #424f5a;
+}
+
+#panel-lightbeam .panel-title {
+  background: linear-gradient(to top,rgba(66,79,90,0.95) 50%,rgba(66,79,90,0.8) 65%,rgba(66,79,90,0) 100%); 
+  width: 225px;
+}
+
+#panel-fox {
+  background: url('images/firefoxos-fox.png') -118px -100px no-repeat, #0095dd;
+}
+
+#panel-fox .panel-title {
+  background: linear-gradient(to top,rgba(0,84,160,0.8) 0%,rgba(0,84,160,0) 100%);
+  width: 225px;
+}
+
+#panel-webmaker {
+  background: url('images/logo-webmaker.png') -110px 15px no-repeat, #e1ebed;
+}
+
+#panel-webmaker .panel-title {
+  background: linear-gradient(to top,rgba(201,204,204,0.8) 65%,rgba(225,235,237,0) 100%);
+  width: 225px;
+  color: #c1423d;
+  font-weight: bold;
+}
+
+#panel-mdn {
+  background: url('images/logo-mdn.svg') -32px 35px no-repeat, black;
+}
+
+#panel-mdn .panel-title {
+  background: linear-gradient(to top,#fff 0%,rgba(255,255,255,0.8) 0%,rgba(255,255,255,0) 100%);
+  width: 225px;
+}
+
+.panel-title {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 300px 0px 0px 0px;
+  position: absolute;
+  height: 80px;
+}
+
+/* LOGO SECTION */
+#logo {
+  background: linear-gradient(#383838 -30%, white 9%, #383838 390%);
+  height: 150px;
+}
+
+/* NEW SECTION */
+#news {
+  background: linear-gradient(#383838 -30%, #c1423d 9%, #383838 390%);
+  height: 282px;
+}
+
+/* FOOTER */
+footer {
+  height: 182px;
+  background: linear-gradient(#383838 -30%, white 9%, #383838 390%);
+}
+
+.banners {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}

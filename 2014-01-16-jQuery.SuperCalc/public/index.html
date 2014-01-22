@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/logic.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id='mainWrap'>
+      <h2>SuperCalc®</h2>
+      <div id="display">0</div>
+      <ul id="queue"></ul>
+      <div id="ulWrap">
+        <ul>
+          <li><input type="button" id="sum" value="∑"></li>
+          <li><input type="button" id="pow" class="operator disabled" value="pow" disabled></li>
+          <li><input type="button" id="clear" class="key" value="clr"></li>
+          <li><input type="button" id="neg" class="key" value="neg"></li>
+        </ul>
+        <ul>
+          <li><input type="button" id="n7" class="number key" value="7"></li>
+          <li><input type="button" id="n8" class="number key" value="8"></li>
+          <li><input type="button" id="n9" class="number key" value="9"></li>
+          <li><input type="button" id="add" class="operator disabled" value="+" disabled></li>
+        </ul>
+        <ul>
+          <li><input type="button" id="n4" class="number key" value="4"></li>
+          <li><input type="button" id="n5" class="number key" value="5"></li>
+          <li><input type="button" id="n6" class="number key" value="6"></li>
+          <li><input type="button" id="sub" class="operator disabled" value="-" disabled></li>
+        </ul>
+        <ul>
+          <li><input type="button" id="n1" class="number key" value="1"></li>
+          <li><input type="button" id="n2" class="number key" value="2"></li>
+          <li><input type="button" id="n3" class="number key" value="3"></li>
+          <li><input type="button" id="mul" class="operator disabled" value="*" disabled></li>
+        </ul>
+        <ul>
+          <li><input type="button" id="np" class=" number key" value="."></li>
+          <li><input type="button" id="n0" class="number key" value="0"></li>
+          <li><input type="button" id="push" class="key" value="push"></li>
+          <li><input type="button" id="div" class="operator disabled" value="÷" disabled></li>
+        </ul>
+      </div>
+      <footer>Designed & Coded by ™</footer>
+    </div>
+  </body>
+</html>
+

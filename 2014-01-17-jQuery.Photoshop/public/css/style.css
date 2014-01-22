@@ -1,0 +1,73 @@
+/* CSS */
+
+body {
+  background: rgb(118,118,118);
+  margin: 10px;
+}
+
+#header {
+  text-align: center;
+}
+
+h2 {
+  font-size: 4.5em;
+  color: steelblue;
+  text-shadow: white 2px 1px 5px;
+}
+
+p {
+  margin-bottom: 2px;
+  margin-top: 4px;
+  font-size: 1.15em;
+  color: rgb(231,231,231);
+}
+
+.color {
+  height: 34px;
+  width: 34px;
+  float: left;
+  border-radius: 100px / 50px;
+  margin: 1px 3px;
+  border: outset;
+}
+
+.selected {
+  height: 30px;
+  width: 30px;
+  border: 2px solid black;
+  margin-top: 5px;
+}
+
+.clear {
+  clear: both;
+}
+
+#colors {
+  border-radius: 10px;
+  background-color: white;
+  border: ridge;
+  height: 42px;
+  margin: 7px 0px;
+  padding: 5px 0px;
+  box-shadow: 0px 1px 3px black;
+}
+
+.pixel {
+  height: 5px;
+  width: 5px;
+  margin: auto;
+  //border: 1px dashed black;
+  float: left;
+}
+
+#pixelwrap {
+  border-radius: 10px;
+  background: url('/images/hempcanvas.jpg');
+  box-shadow: inset 0px 0px 15px black;
+}
+
+#wrapshadow {
+  box-shadow: 0px 0px 15px black;
+  margin: 20px;
+  border-radius: 10px;
+}

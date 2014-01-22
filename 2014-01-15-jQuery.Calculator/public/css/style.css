@@ -1,0 +1,54 @@
+/* CSS */
+@import url(http://fonts.googleapis.com/css?family=Flamenco:300,400);
+
+body {
+  background: url('/images/squared_metal.png');
+  font-family: 'Flamenco', cursive;
+}
+
+h2 {
+  margin: 2px;
+  text-decoration: underline;
+}
+p {
+  text-decoration: underline;
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+.answer {
+  background-color: #eff3f4;
+  border-style: groove;
+  padding-left: 3px;
+  padding-top: 3px;
+  margin: 1px 0px 15px;
+  font-size: 1.5em;
+  width: 150px;
+  height: 30px;
+}
+
+#spCalcWrap {
+  background: url('/images/retina_wood.png');
+  padding: 1px 0px 20px 8px;
+  width: 400px;
+  border-radius: 10px;
+  border-style: outset;
+  margin: 75px 505px 0px 505px;
+}
+
+.polite {
+  font-size: 1em;
+  text-decoration: none;
+  margin: 3px 2px 0px;
+}
+
+#tag {
+  float: right;
+  font-size: .8em;
+  padding-right: 10px;
+}
+
+p:first-child {
+  font-size: 2.5em;
+  text-align: center;
+}

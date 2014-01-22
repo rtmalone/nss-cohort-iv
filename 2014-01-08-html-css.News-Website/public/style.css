@@ -1,0 +1,44 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Cardo);
+
+header {
+  color: red;
+  border: 3px dotted green;
+}
+
+header h1 {
+  margin-left: 20px;
+  font-family: 'Poiret One', cursive;
+  font-size: 60px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+body  {
+  background: url('images/tile.jpg') repeat;
+}
+
+p {
+  font-family: 'Cardo', serif;
+  color: darkred;
+  line-height: 1.5em;
+}
+
+nav {
+  line-height: 2em;
+}
+
+a {
+  border: 1px solid blue;
+  text-decoration: none;
+  background-color: red;
+  color: yellow;
+  padding: 3px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
+
+a:hover {
+  color: red;
+  background-color: yellow;
+}
