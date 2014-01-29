@@ -13,9 +13,14 @@
     $('input', 'textarea').blur(blurInput);
     $('#addPhoto').click(addPhoto);
     $('#addAnimal').click(addAnimal);
+    $('#showTable').click(showTable);
 
     animals = animalFactory();
     addToTable();
+  }
+
+  function showTable(){
+    $('table').slideToggle('fast');
   }
 
   function addToTable(){
@@ -28,15 +33,19 @@
 
       var $td2 = $('<td>');
       $td2.text(animals[i].species);
+      $td2.wrapInner('<a href="#" data-search="Species" data-value="'+animals[i].species+'"></a>');
       
       var $td3 = $('<td>');
       $td3.text(animals[i].color);
+      $td3.wrapInner('<a href="#" data-search="Color" data-value="'+animals[i].color+'"></a>');
       
       var $td4 = $('<td>');
       $td4.text(animals[i].age);
+      $td4.wrapInner('<a href="#" data-search="Age" data-value="'+animals[i].age+'"></a>');
       
       var $td5 = $('<td>');
       $td5.text(animals[i].gender);
+      $td5.wrapInner('<a href="#" data-search="Gender" data-value="'+animals[i].gender+'"></a>');
       
       var $td6 = $('<td>');
       $td6.text(animals[i].description);
