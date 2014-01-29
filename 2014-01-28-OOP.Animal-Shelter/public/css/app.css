@@ -1,0 +1,36 @@
+.panel h1 {
+  color: #dfdfdf;
+}
+body {
+  background-color: #5ec4cd;
+}
+.th {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 5px;
+}
+fieldset {
+  background-color: rgba(37, 46, 46, 0.4);
+  box-shadow: 0px 10px 20px;
+}
+.panel {
+  background-color: rgba(37, 46, 46, 0.4);
+  box-shadow: 0px 10px 20px;
+}
+#addAnimal {
+  background-color: #e46749;
+  border: 2px solid #dfdfdf;
+  color: #dfdfdf;
+}
+#addPhoto {
+  background-color: #e46749;
+  border: 2px solid #dfdfdf;
+  color: #dfdfdf;
+}
+table {
+  width: 100%;
+  box-shadow: 0px 10px 20px;
+}
