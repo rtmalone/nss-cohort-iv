@@ -59,7 +59,7 @@
       if (animals[i].photos.length > 1){
         addPhotos(i);
       } else {
-        $div.css('background-image', animals[i].photos).addClass('th');
+        $div.css('background-image', animals[i].photos).addClass('th radius');
       }
     }
   }
@@ -67,7 +67,7 @@
   function addPhotos(x){
     for(var i=0; i<animals[x].photos.length; i++){
       var $div = $('<div>');
-      $div.css('background-image', animals[x].photos[i]).addClass('th');
+      $div.css('background-image', animals[x].photos[i]).addClass('th radius');
       $('tbody > tr:last-child > td:last-child').append($div);
     }
   }
