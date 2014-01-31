@@ -41,7 +41,7 @@ test('Shelter#setHours()', function() {
     {day: 'Fri', open: '9am', close: '4pm'}
   ]);
 
-  deepEqual( s1.hours, 'Mon 8am-5pm, Wed 11am-2pm, Fri 9am-4pm', 's1 should have hours set' );
+  deepEqual( s1.getHours, 'Mon 8am-5pm, Wed 11am-2pm, Fri 9am-4pm', 's1 should have hours set' );
 });
 
 
@@ -50,9 +50,7 @@ test('Shelter#addAnimal()', function() {
   var a1 = new Animal('Fido');
   s1.addAnimal(a1);
 
-  ok(s1.animals.length === 1, 's1 should have one item in the array');
-  ok(s1.animals[0] instanceof Animal, 'a1 should be instance of s1');
-  deepEqual(s1.animals[0].name, 'Fido', 'Fido should exist in the shelter');
+  ok(s1.animalCount() === 1, 's1 should have one item in the array');
 });
 
 test('Shelter#placeAnimal()', function() {
@@ -68,8 +66,7 @@ test('Shelter#placeAnimal()', function() {
   s1.placeAnimal('Fido');
 
   deepEqual(a1.name, 'Fido', 'Get Fido should be the name of this animal.');
-  deepEqual(s1.animals.length, 2, 's1 should have 2 items in array');
-  console.log(a1.name);
+  deepEqual(s1.animalCount(), 2, 's1 should have 2 items in array');
 });
 
 /* Client Tests */
