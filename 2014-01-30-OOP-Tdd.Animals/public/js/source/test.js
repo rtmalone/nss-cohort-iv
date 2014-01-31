@@ -1,4 +1,4 @@
-/* global test:false, deepEqual:false, ok:false, Shelter:false, Animal:false */
+/* global test:false, deepEqual:false, ok:false, Clients:false, Shelter:false, Animal:false */
 
 'use strict';
 
@@ -60,14 +60,34 @@ test('Shelter#placeAnimal()', function() {
   var a1 = new Animal('Fido');
   var a2 = new Animal('Simba');
   var a3 = new Animal('Sir Charles');
+
   s1.addAnimal(a1);
   s1.addAnimal(a2);
   s1.addAnimal(a3);
 
-  var s4 = s1.placeAnimal('Fido');
+  s1.placeAnimal('Fido');
 
-  deepEqual(a1.name, 'Fido', 'Get Fido from shelter  should be the name of this animal.');
-  deepEqual(s4.animals.length, 2, 's1 should have 2 items in array');
+  deepEqual(a1.name, 'Fido', 'Get Fido should be the name of this animal.');
+  deepEqual(s1.animals.length, 2, 's1 should have 2 items in array');
+  console.log(a1.name);
+});
+
+/* Client Tests */
+
+test('Client', function() {
+  var c1 = new Clients();
+
+  ok( c1 instanceof Clients, 'c1 is and instance of Client');
+});
+
+test('Client#adopt', function() {
+  var a1 = new Animal('Fido');
+  var c1 = new Clients('Bob');
+
+  c1.adopt(a1);
+
+  deepEqual(c1.animals.length, 1, 'Animals for client should be 1');
+  deepEqual(c1.animals[0].name, 'Fido', 'Animal name should be Fido');
 });
 
 /* Animal Tests */
