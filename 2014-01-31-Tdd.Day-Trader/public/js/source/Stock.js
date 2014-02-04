@@ -4,38 +4,43 @@ var Stock = (function() {
 
   'use strict';
 
-  var symbol, shares, purchaseAmt;
 
   function Stock(Symbol, Shares, PurchaseAmt) {
-    symbol = Symbol;
-    shares = Shares;
-    purchaseAmt = PurchaseAmt;
+    this._symbol = Symbol;
+    this._shares = Shares;
+    this._purchaseAmt = PurchaseAmt;
   }
+  //getter function: Purpose is to solely get a property
+  Object.defineProperty(Stock.prototype, 'symbol', {
+    get: function(){
+      return this._symbol;
+    }
+  });
 
-  Stock.prototype.getQuote = function(fn) { //function to be called when stock price comes back via callback
-    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=' + symbol + '&callback=?';
-    $.getJSON(url, fn);
-  };
+  Object.defineProperty(Stock.prototype, 'shares', {
+    get: function(){
+      return this._shares;
+    }
+  });
+
+  Object.defineProperty(Stock.prototype, 'purchaseAmt', {
+    get: function(){
+      return this._purchaseAmt;
+    }
+  });
+
 
   Stock.prototype.value = function(fn){
-    this.getQuote(function(quote) { // quote Object
-      var total = quote.LastPrice * shares; //LastPrice key of quote Object
+    var self = this;
+    var url = 'http://dev.markitondemand.com/Api/v2/Quote/jsonp?symbol=' + this.symbol + '&callback=?';
+    $.getJSON(url, function(quote){
+      var total = quote.LastPrice * self.shares;
       fn(total);
     });
   };
 
-  Stock.prototype.getSymbol = function() {
-    return symbol;
-  };
-
-  Stock.prototype.getShares = function() {
-    return shares;
-  };
-
-  Stock.prototype.getPurchaseAmt = function() {
-    return purchaseAmt;
-  };
 
   return Stock;
 
 })();
+
