@@ -25,6 +25,10 @@ var Cart = (function(){
     this.products.push(product);
   };
 
+  Cart.prototype.removeProduct = function(product){
+    _.pull(this.products, product);
+  };
+
   return Cart;
 
 })();

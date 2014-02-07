@@ -11,6 +11,11 @@ var Person = (function(){
     this.cart = new Cart();
   }
 
+  Person.prototype.checkOut = function(){
+    this.cash = this.cash - this.cart.total;
+    this.cart.products = [];
+  };
+
   return Person;
 
 })();

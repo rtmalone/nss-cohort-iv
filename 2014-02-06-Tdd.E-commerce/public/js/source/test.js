@@ -40,21 +40,36 @@ test('Cart#addProduct', function(){
   r1.cart.addProduct(p2);
 
   deepEqual(r1.cart.products.length, 2, 'c1 should have 2 products');
-  //deepEqual(r1.cash, 65, 'c1 should have 2 products');
   deepEqual(r1.cart.total, 35, 'c1 should have 2 products');
 });
-/*
+
 test('Cart#removeProduct', function(){
   var r1 = new Person('Tyler', 100);
   var p1 = new Product('ShamWow', 15);
   var p2 = new Product('Snuggie', 20);
   var p3 = new Product('Egg Perfect', 10);
-  var c1 = new Cart();
 
-  c1.addProduct(p1);
-  c1.addProduct(p2);
-  c1.addProduct(p3);
-  
-  c1.removeProduct(p3)
-*/
+  r1.cart.addProduct(p1);
+  r1.cart.addProduct(p2);
+  r1.cart.addProduct(p3);
 
+  r1.cart.removeProduct(p3);
+
+  deepEqual(r1.cart.products.length, 2, 'Cart should have 2 products');
+  deepEqual(p3.name, 'Egg Perfect', 'Removed item is Egg Perfect');
+
+});
+
+test('Person#checkOut', function(){
+  var r1 = new Person('Tyler', 100);
+  var p1 = new Product('ShamWow', 15);
+  var p2 = new Product('Snuggie', 20);
+
+  r1.cart.addProduct(p1);
+  r1.cart.addProduct(p2);
+
+  r1.checkOut();
+
+  deepEqual(r1.cart.products.length, 0, 'Cart is empty');
+  deepEqual(r1.cash, 65, 'Cash result should be 65');
+});
