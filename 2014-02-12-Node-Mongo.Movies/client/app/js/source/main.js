@@ -7,7 +7,40 @@
   function initialize(){
     $(document).foundation();
     $('#movie').submit(createMovie);
+    $('#movieTable').on('click', '.delete', deleteMovie);
+    $('#movieTable').on('click', '.edit', editMovie);
     showMovies();
+  }
+
+  function editMovie(event){
+    var $name = $(this).siblings('.name').text();
+    console.log($name);
+    $('#name').val($name);
+    debugger;
+    //var url = window.location.origin.replace(/3000/, '4000')+'/movies/'+movieId;
+    //$.getJSON(url, popForm);
+
+    event.preventDefault();
+  }
+
+  //function popForm(movie){
+    //console.log(movie);
+  //}
+
+  function deleteMovie(event){
+    var movieId = $(this).data('movieid');
+    var url = window.location.origin.replace(/3000/, '4000') + '/movies/'+movieId;
+    var type = 'DELETE';
+    var success = removeDomElement;
+    $.ajax({url:url, type:type, data:movieId, success:success});
+    
+    event.preventDefault();
+  }
+
+  function removeDomElement(data){
+    if(data.deleted === 1){
+      $('.delete[data-movieId="'+data.id+'"]').parent().remove();
+    }
   }
 
   function showMovies(){
@@ -28,22 +61,25 @@
       var $tdactors = $('<td>');
       var $tddirector = $('<td>');
       var $tdposter = $('<td>');
-      //var $posterURL;
       var $div = $('<div>');
-      //var $a = $('<a>');
+      var $tddelete = $('<button>');
+      var $tdedit = $('<button>');
 
-      $tdname.text(data.movies[i].name);
-      $tdrating.text(data.movies[i].rating);
-      $tdtime.text(data.movies[i].runtime);
-      $tdyear.text(data.movies[i].releaseyr);
-      $tdstudio.text(data.movies[i].studio);
-      $tdactors.text(data.movies[i].actors);
-      $tddirector.text(data.movies[i].director);
+      $tdname.text(data.movies[i].name).addClass('name'); //.attr('data-name', data.movies[i].name);
+      $tdrating.text(data.movies[i].rating).addClass('rating').attr('data-rating', data.movies[i].rating);
+      $tdtime.text(data.movies[i].runtime).addClass('runtime').attr('data-rating', data.movies[i].runtime);
+      $tdyear.text(data.movies[i].releaseyr).addClass('releaseyr').attr('data-releaseyr', data.movies[i].releaseyr);
+      $tdstudio.text(data.movies[i].studio).addClass('studio').attr('data-studio', data.movies[i].studio);
+      $tdactors.text(data.movies[i].actors).addClass('actors').attr('data-actors', data.movies[i].actors);
+      $tddirector.text(data.movies[i].director).addClass('director').attr('data-director', data.movies[i].director);
       $div.css('background-image', 'url('+data.movies[i].poster+')');
       $div.addClass('th');
+      $tddelete.attr('data-movieID', data.movies[i]._id);
+      $tddelete.text('Delete').addClass('tiny radius alert delete');
+      $tdedit.text('Edit').addClass('tiny radius edit');
 
       $tdposter.append($div);
-      $tr.append($tdname, $tdrating, $tdtime, $tdyear, $tdstudio, $tdactors, $tddirector, $tdposter);
+      $tr.append($tdname, $tdrating, $tdtime, $tdyear, $tdstudio, $tdactors, $tddirector, $tdposter, $tddelete, $tdedit);
       $('#movieTable > tbody').prepend($tr);
     }
   }
