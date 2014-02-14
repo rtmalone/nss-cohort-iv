@@ -35,7 +35,7 @@ html(class='no-js', lang='en')
               input#studio(type='text', name='studio')
           .small-4.columns
             label Director
-              input#directo(type='text', name='director')
+              input#director(type='text', name='director')
         .row
           .small-12.columns
             label Actors
@@ -46,7 +46,13 @@ html(class='no-js', lang='en')
               input#poster(type='text', name='poster')
         .row
           .small-12.columns
+              input#hiddenInput(name='id', type='hidden')
+        .row
+          .small-12.columns
             button#create-movie.radius Create Movie
+    .row
+      .small-12.columns
+        button#update-movie.radius Update Movie
 
     .row
       .small-12.columns
