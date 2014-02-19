@@ -32,3 +32,12 @@ exports.destroy = function(req, res){
     res.send({count:count});
   });
 };
+
+exports.update = function(req, res){
+  Priority = global.nss.Priority;
+  
+  var priority = new Priority(req.body);
+  priority.save(function(){
+    res.send(priority);
+  });
+};

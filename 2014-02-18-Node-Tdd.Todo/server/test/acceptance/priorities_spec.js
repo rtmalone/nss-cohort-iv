@@ -39,8 +39,7 @@ describe('priorities', function(){
     });
   });
 
-  /*
-   describe('POST /priorities', function(){
+  describe('POST /priorities', function(){
     it('Should create a new priority', function(done){
       request(app)
       .post('/priorities')
@@ -53,7 +52,6 @@ describe('priorities', function(){
       });
     });
   });
-  */
 
   describe('GET /priorities', function(){
     it('should return all priorities in db', function(done){
@@ -95,6 +93,27 @@ describe('priorities', function(){
         request(app)
         .del('/priorities/'+ id)
         .end(function(err, res){
+          done();
+        });
+      });
+    });
+  });
+
+  describe('PUT /priorities/id', function(){
+    it('should update specific priority in db', function(done){
+      Priority.findByName('Medium', function(priority){
+        var id = priority._id.toString();
+
+        priority.name = 'I hate Tdd';
+        priority.value = '666';
+
+        request(app)
+        .put('/priorities/'+id)
+        .send(priority)
+        .end(function(err, res){
+          expect(res.body.name).to.equal('I hate Tdd');
+          expect(res.body.value).to.deep.equal(666);
+          expect(res.body._id).to.equal(id);
           done();
         });
       });
