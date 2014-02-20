@@ -1,17 +1,12 @@
-@bg-color: rgba(114, 154, 194, 0.88);
-
-body{
-  background-color: @bg-color;
+body {
+  background-color: rgba(114, 154, 194, 0.88);
 }
-
 table {
   width: 60%;
 }
-
 table > tbody input {
   width: 80px;
 }
-
 .delete {
   width: 25px;
   padding: 5px;
@@ -22,4 +17,3 @@ table > tbody input {
   border-radius: 5px;
   text-align: center;
 }
-
