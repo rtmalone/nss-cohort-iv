@@ -1,0 +1,10 @@
+body {
+  background-color: #add8e6;
+}
+#userform {
+  width: 1000px;
+  margin: auto;
+  box-shadow: 0px 6px 7px #000000;
+  background-color: #cfcfcf;
+  display: none;
+}

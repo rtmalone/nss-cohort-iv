@@ -1,0 +1,43 @@
+doctype html
+//[if IE 9]><html class="lt-ie10" lang="en" > <![endif]
+html(class='no-js', lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Note Taker
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='/js/vendor/modernizr.js')
+  body
+    .row
+      .small-4.columns
+        h1 Note Taker
+      .small-8.columns
+        button#formbtn.tiny.radius.right Register/Login
+
+    form#userform
+      fieldset
+        .row
+          .small-3.columns
+            .row
+              .small-12.columns
+                label Email
+                  input(type='text', name="email", placeholder='email', autofocus=true)
+            .row
+              .small-12.columns
+                label Password
+                  input(type='password', placeholder='password', name="password")
+            .row
+              .small-6.columns
+                button#register.expand.tiny.radius.alert Register
+              .small-6.columns
+                button#login.expand.tiny.radius Login
+          .small-9.columns
+
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/lodash.js')
+    script(src='/js/vendor/moment.js')
+    script(src='/js/source/main.js')
+
