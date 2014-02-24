@@ -76,7 +76,7 @@
     $divdel.addClass('delete');
 
     $tr.attr('data-id', priority._id);
-    $tdupdate.append($updatebtn.attr('data-id', priority._id).addClass('tiny radius alert updatebtn').css('visibility', 'hidden'));
+    $tdupdate.append($updatebtn.attr('data-id', priority._id).addClass('tiny radius alert updatebtn').hide());
     $tdname.append($divname.text(priority.name));
     $tdvalue.append($divval.text(priority.value));
 
@@ -92,8 +92,10 @@
 //---- Update Functions
 
   function editPriority(){
+    //$(this).parent().parent().siblings().children('.updatebtn').css('visibility', 'visible');
+    $(this).closest('tr').children(':first').children().show();
+    //$(this).closest('tr').children('td:nth-child(1)').css('visibility', 'visible');
     $(this).replaceWith('<input type="text" placeholder="Update" autofocus>');
-    $('tbody input').parent().parent().siblings().children('.updatebtn').css('visibility', 'visible');
     /*$(this).replaceWith('<select></select>');
     for(var i=1; i<4; i++){
       $('<select>').append('<option>'+i+'</option>');
