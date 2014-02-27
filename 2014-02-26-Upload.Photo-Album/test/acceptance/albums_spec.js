@@ -4,10 +4,9 @@ process.env.DBNAME = 'album-test';
 var app = require('../../app/app');
 var request = require('supertest');
 //var expect = require('chai').expect;
-var Album;
-var fs = require ('fs');
-//var path = require('path');
+var fs = require('fs');
 var rimraf = require('rimraf');
+var Album;
 
 describe('albums', function(){
 
@@ -21,12 +20,12 @@ describe('albums', function(){
   });
 
   beforeEach(function(done){
-    var dir = __dirname + '/../../app/static/img';
-    rimraf.sync(dir);
-    fs.mkdirSync(dir);
-    var ogFile = __dirname + '/../fixtures/picnic.jpg';
-    var copyFile = __dirname + '/../fixtures/picnic-copy.jpg';
-    fs.createReadStream(ogFile).pipe(fs.createWriteStream(copyFile));
+    var imgdir = __dirname + '/../../app/static/img';
+    rimraf.sync(imgdir);
+    fs.mkdirSync(imgdir);
+    var origfile = __dirname + '/../fixtures/picnic.jpg';
+    var copyfile = __dirname + '/../fixtures/picnic-copy.jpg';
+    fs.createReadStream(origfile).pipe(fs.createWriteStream(copyfile));
 
     global.nss.db.dropDatabase(function(err, result){
       done();
@@ -41,14 +40,15 @@ describe('albums', function(){
     });
   });
 
-  describe('POST /albums/', function(){
-    it('should create a new album and send usr back to home', function(done){
-      var filename = __dirname+'/../fixtures/picnic-copy.jpg';
+  describe('POST /albums', function(){
+    it('should create a new album and send user back to home', function(done){
+      var filename = __dirname + '/../fixtures/picnic-copy.jpg';
+
       request(app)
       .post('/albums')
       .attach('cover', filename)
       .field('title', 'Node Vacation')
-      .field('taken', '2014-02-26')
+      .field('taken', '2014-02-25')
       .expect(302, done);
     });
   });

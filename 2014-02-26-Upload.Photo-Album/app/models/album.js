@@ -4,14 +4,11 @@ module.exports = Album;
 var albums = global.nss.db.collection('albums');
 var fs = require('fs');
 var path = require('path');
-//var Mongo = require('mongodb');
 var albums;
 
 function Album(album){
-  //this._id = album._id
   this.title = album.title;
   this.taken = new Date(album.taken);
-  //this.photos = [];
 }
 
 Album.prototype.addCover = function(oldpath){
@@ -29,5 +26,11 @@ Album.prototype.addCover = function(oldpath){
 Album.prototype.insert = function(fn){
   albums.insert(this, function(err, records){
     fn(err);
+  });
+};
+
+Album.findAll = function(fn){
+  albums.find().toArray(function(err, records){
+    fn(records);
   });
 };

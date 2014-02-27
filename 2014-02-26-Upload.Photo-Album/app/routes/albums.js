@@ -1,10 +1,9 @@
 'use strict';
 
 var Album = require('../models/album');
-//var albums = global.nss.db.collection('albums');
 
 exports.new = function(req, res){
-  res.render('albums/new', {title:'New Album'});
+  res.render('albums/new', {title: 'New Album'});
 };
 
 exports.create = function(req, res){
@@ -15,3 +14,9 @@ exports.create = function(req, res){
   });
 };
 
+exports.index = function(req, res){
+  Album.findAll(function(albums){
+    console.log(albums);
+    res.render('albums', {albums:albums});
+  });
+};
