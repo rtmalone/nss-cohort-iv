@@ -11,17 +11,28 @@ html(class='no-js', lang='en')
     script(src='/js/vendor/modernizr.js')
   body(style='background-image:url("'+album.cover+'")')
     .row
-      .small-12.columns
-        h1= album.title
+      .small-12.columns.panel
+        h1= album.title 
+        h5= moment(album.taken).format('MMMM Do, YYYY')
 
     .row
       .small-2.columns
-        a(href='/')
-          button.tiny.radius Back to Albums
+        a.button.tiny.radius(href='/') Back to Albums
       .small-2.columns
-        a
-          button.tiny.radius.left Add Photo
+        a.button.tiny.radius.left#addphoto Add Photo
       .small-8.columns
+    .row
+      .small-6.columns
+        form#addform(action='/albums/' + album._id, method='post', enctype='multipart/form-data')
+          fieldset
+            .row
+              .small-8.columns
+                label Photo
+                input(type='file', name='photo')
+              .small-4.columns
+                label &nbsp;
+                button.tiny.radius Add Photo
+      .small-6.columns
     .row
       .small-12.columns
 

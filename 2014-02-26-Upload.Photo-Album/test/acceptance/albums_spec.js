@@ -72,7 +72,7 @@ describe('albums', function(){
 
     it('should display the new album html page', function(done){
       request(app)
-      .get('/albums/show/' + a2._id.toString())
+      .get('/albums/' + a2._id.toString())
       .expect(200, done);
     });
   });

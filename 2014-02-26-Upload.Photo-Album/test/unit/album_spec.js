@@ -23,7 +23,9 @@ describe('Album', function(){
     exec(cmd, function(){
       var origfile = __dirname + '/../fixtures/picnic.jpg';
       var copyfile = __dirname + '/../fixtures/picnic-copy.jpg';
+      var copyfile2 = __dirname + '/../fixtures/picnic-copy2.jpg';
       fs.createReadStream(origfile).pipe(fs.createWriteStream(copyfile));
+      fs.createReadStream(origfile).pipe(fs.createWriteStream(copyfile2));
       global.nss.db.dropDatabase(function(err, result){
         done();
       });
@@ -99,6 +101,57 @@ describe('Album', function(){
       it('should find record by ID', function(done){
         Album.findById(a1._id.toString(), function(album){
           expect(album._id).to.deep.equal(a1._id);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('#addPhoto', function(){
+    var a1;
+
+    beforeEach(function(done){
+      a1 = new Album({title:'Test Album', taken:'2014-02-20'});
+      var oldname = __dirname + '/../fixtures/picnic-copy.jpg';
+      a1.addCover(oldname);
+      a1.insert(function(){
+        done();
+      });
+    });
+
+    it('should add a photo to the Album', function(done){
+      var id = a1._id.toString();
+      Album.findById(id, function(album){
+        var photo = __dirname + '/../fixtures/picnic-copy2.jpg';
+        album.addPhoto(photo, 'veridian.jpg');
+        expect(album.photos).to.have.length(1);
+        expect(album.photos[0]).to.equal('/img/testalbum/veridian.jpg');
+        done();
+      });
+    });
+  });
+
+  describe('#update', function(){
+    var a1;
+
+    beforeEach(function(done){
+      a1 = new Album({title:'Test Album', taken:'2014-02-21'});
+      var oldname = __dirname + '/../fixtures/picnic-copy.jpg';
+      a1.addCover(oldname);
+      a1.insert(function(){
+        done();
+      });
+    });
+
+    it('should update an existing photo album', function(done){
+      var id = a1._id.toString();
+      Album.findById(id, function(album){
+        var photo = __dirname + '/../fixtures/picnic-copy2.jpg';
+        album.addPhoto(photo, 'veridian.jpg');
+        expect(album.photos).to.have.length(1);
+        expect(album.photos[0]).to.equal('/img/testalbum/veridian.jpg');
+        album.update(function(err, count){
+          expect(count).to.equal(1);
           done();
         });
       });

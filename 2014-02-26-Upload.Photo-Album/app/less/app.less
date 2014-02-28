@@ -1,16 +1,75 @@
-@bg-color: lightgrey;
+@import url(http://fonts.googleapis.com/css?family=Flamenco);
+
+@bg-color: #F1EDCE;
 @btn-color: cadetblue;
 
 body{
-  background: linear-gradient(lightgrey, darkgrey);
+  //background-image: url('app/static/img/stucco.png');
+  background-color: @bg-color;
   background-size: cover;
+  font-family: 'Flamenco', cursive;
+  font-size: 1.2em;
 }
 
-button {
+.panel {
+  background-color: rgba(255,255,255,0.7);
+  border-radius: 0px 0px 15px 15px;
+}
+
+h1, h5 {
+  font-family: 'Flamenco', cursive;
+}
+
+.button, button {
   background-color: @btn-color;
 }
 
+a {
+  color: @btn-color;
+}
+
+#container {
+  align: center;
+}
+
+.album{
+  border: 4px outset lightgrey;
+  margin: 0px 25px 25px 0px;
+  float: left;
+  width: 150px;
+  border-radius: 10px;
+}
+
 .cover {
-  width: 100px;
-  height: 100px;
+  height: 150px;
+  background-size: cover;
+}
+
+.title, .taken {
+  padding: 5px;
+  background-color: rgba(255,255,255,0.85);
+}
+
+#addform {
+  display:none;
+  background-color: rgba(255,255,255,0.85);
+}
+
+.grow {
+  display: inline-block;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0);
+}
+
+.grow:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }

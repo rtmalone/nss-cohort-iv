@@ -11,13 +11,15 @@ html(class='no-js', lang='en')
     script(src='/js/vendor/modernizr.js')
   body
     .row
-      .small-12.columns
+      .small-12.columns.panel
         h1=title
+    .row
+      .small-12.columns
+        a.button.small.radius.tiny(href='/') Home
     .row
       .small-12.columns
         form(action='/albums', method='post', enctype='multipart/form-data')
           fieldset
-            legend= title
             .row
               .small-4.columns
                 label Title

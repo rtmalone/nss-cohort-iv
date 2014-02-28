@@ -11,19 +11,19 @@ html(class='no-js', lang='en')
     script(src='/js/vendor/modernizr.js')
   body
     .row
-      .small-12.columns
+      .small-12.columns.panel
         h1=title
 
     .row
       .small-12.columns
-        a(href='/albums/new')
-          button.tiny.radius Create New
+        a.button.tiny.radius(href='/albums/new') Create New
     .row
       .small-12.columns
         each album in albums
-          .cover(style='background-image:url("'+album.cover+'"), data-id="'+album._id+'"')
-          .title: a(href='/albums/'+album._id)= album.title
-          .taken= moment(album.taken).format('MMM Do, YYYY')
+          .album.grow
+            .cover(style='background-image:url("'+album.cover+'"), data-id="'+album._id+'"')
+            .title: a(href='/albums/'+album._id)= album.title
+            .taken= moment(album.taken).format('MMM Do, YYYY')
 
 
 
