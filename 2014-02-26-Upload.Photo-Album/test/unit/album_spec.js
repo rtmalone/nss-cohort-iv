@@ -3,8 +3,7 @@
 process.env.DBNAME = 'album-test';
 var expect = require('chai').expect;
 var fs = require('fs');
-var path = require('path');
-var rimraf = require('rimraf');
+var exec = require('child_process').exec;
 var Album;
 
 describe('Album', function(){
@@ -18,46 +17,48 @@ describe('Album', function(){
   });
 
   beforeEach(function(done){
-    var imgdir = __dirname + '/../../app/static/img';
-    rimraf.sync(imgdir);
-    fs.mkdirSync(imgdir);
-    var origfile = __dirname + '/../fixtures/picnic.jpg';
-    var copyfile = __dirname + '/../fixtures/picnic-copy.jpg';
-    fs.createReadStream(origfile).pipe(fs.createWriteStream(copyfile));
+    var imgdir = __dirname + '/../../app/static/img/test*';
+    var cmd = 'rm -rf ' + imgdir;
 
-    global.nss.db.dropDatabase(function(err, result){
-      done();
+    exec(cmd, function(){
+      var origfile = __dirname + '/../fixtures/picnic.jpg';
+      var copyfile = __dirname + '/../fixtures/picnic-copy.jpg';
+      fs.createReadStream(origfile).pipe(fs.createWriteStream(copyfile));
+      global.nss.db.dropDatabase(function(err, result){
+        done();
+      });
     });
   });
 
   describe('new', function(){
     it('should create a new Album object', function(){
       var o = {};
-      o.title = 'Node Vacation';
+      o.title = 'Test Node Vacation';
       o.taken = '2010-03-25';
       var a1 = new Album(o);
       expect(a1).to.be.instanceof(Album);
-      expect(a1.title).to.equal('Node Vacation');
+      expect(a1.title).to.equal('Test Node Vacation');
       expect(a1.taken).to.be.instanceof(Date);
+      expect(a1.photos).to.have.length(0);
     });
   });
 
   describe('#addCover', function(){
     it('should add a cover to the Album', function(){
       var o = {};
-      o.title = 'Node Vacation';
+      o.title = 'Test Node Vacation';
       o.taken = '2010-03-25';
       var a1 = new Album(o);
       var oldname = __dirname + '/../fixtures/picnic-copy.jpg';
       a1.addCover(oldname);
-      expect(a1.cover).to.equal(path.normalize(__dirname + '/../../app/static/img/nodevacation/cover.jpg'));
+      expect(a1.cover).to.equal('/img/testnodevacation/cover.jpg');
     });
   });
 
   describe('#insert', function(){
     it('should insert a new Album into Mongo', function(done){
       var o = {};
-      o.title = 'Node Vacation';
+      o.title = 'Test Node Vacation';
       o.taken = '2010-03-25';
       var a1 = new Album(o);
       var oldname = __dirname + '/../fixtures/picnic-copy.jpg';
@@ -70,10 +71,11 @@ describe('Album', function(){
   });
 
   describe('Find Methods', function(){
+    var a1, a2, a3;
     beforeEach(function(done){
-      var a1 = new Album({title:'A', taken:'2012-03-25'});
-      var a2 = new Album({title:'B', taken:'2012-03-26'});
-      var a3 = new Album({title:'C', taken:'2012-03-27'});
+      a1 = new Album({title:'A', taken:'2012-03-25'});
+      a2 = new Album({title:'B', taken:'2012-03-26'});
+      a3 = new Album({title:'C', taken:'2012-03-27'});
 
       a1.insert(function(){
         a2.insert(function(){
@@ -88,6 +90,15 @@ describe('Album', function(){
       it('should find all the albums in the database', function(done){
         Album.findAll(function(albums){
           expect(albums).to.have.length(3);
+          done();
+        });
+      });
+    });
+
+    describe('.findById', function(){
+      it('should find record by ID', function(done){
+        Album.findById(a1._id.toString(), function(album){
+          expect(album._id).to.deep.equal(a1._id);
           done();
         });
       });

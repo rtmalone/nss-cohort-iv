@@ -20,7 +20,8 @@ describe('albums', function(){
   });
 
   beforeEach(function(done){
-    var imgdir = __dirname + '/../../app/static/img';
+    var imgdir = __dirname + '/../../app/static/img/test*';
+    //var cmd = 'rm -rf ' + imgdir;
     rimraf.sync(imgdir);
     fs.mkdirSync(imgdir);
     var origfile = __dirname + '/../fixtures/picnic.jpg';
@@ -47,9 +48,32 @@ describe('albums', function(){
       request(app)
       .post('/albums')
       .attach('cover', filename)
-      .field('title', 'Node Vacation')
+      .field('title', 'Test Node Vacation')
       .field('taken', '2014-02-25')
       .expect(302, done);
+    });
+  });
+
+  describe('GET /albums/id', function(){
+    var a1, a2, a3;
+    beforeEach(function(done){
+      a1 = new Album({title:'A', taken:'2012-03-25'});
+      a2 = new Album({title:'B', taken:'2012-03-26'});
+      a3 = new Album({title:'C', taken:'2012-03-27'});
+
+      a1.insert(function(){
+        a2.insert(function(){
+          a3.insert(function(){
+            done();
+          });
+        });
+      });
+    });
+
+    it('should display the new album html page', function(done){
+      request(app)
+      .get('/albums/show/' + a2._id.toString())
+      .expect(200, done);
     });
   });
 });
