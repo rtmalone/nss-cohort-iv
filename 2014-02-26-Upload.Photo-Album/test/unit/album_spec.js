@@ -101,6 +101,7 @@ describe('Album', function(){
       it('should find record by ID', function(done){
         Album.findById(a1._id.toString(), function(album){
           expect(album._id).to.deep.equal(a1._id);
+          //expect(album).to.respondto('addPhoto'); //tests _.extend/_.assign lodash fn
           done();
         });
       });

@@ -20,11 +20,7 @@ Album.prototype.addPhoto = function(oldpath){
   var relpath = '/img/' + dirname;
   fs.mkdirSync(abspath + relpath);
 
-  var extension = path.extname(oldpath);
-  relpath += '/cover' + extension;
-  fs.renameSync(oldpath, abspath + relpath);
-
-  this.cover = relpath;
+  this.photos.push(relpath);
 };
 
 Album.prototype.addCover = function(oldpath){

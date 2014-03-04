@@ -28,3 +28,12 @@ exports.show = function(req, res){
     res.render('albums/show', {moment:moment, album:album, title:album.title});
   });
 };
+/*
+exports.photoAdd = function(req, res){
+  Album.findById(req.params.id, function(album){
+    album.addphoto(req.files.photo.path, req.files.photo.name);
+    album.update(function(){
+      res.redirect('/albums'+req.params.id);
+    });
+  });
+};*/
