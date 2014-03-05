@@ -15,11 +15,14 @@ module.exports = function(req, res, next){
 function load(app, fn){
   var home = require('../routes/home');
   var user = require('../routes/users');
+  var notes = require('../routes/notes');
 
   app.get('/', d, home.index);
   app.get('/auth', d, user.auth);
+  app.get('/notes', d, notes.index);
   app.post('/register', d, user.register);
   app.post('/login', d, user.login);
+  app.post('/logout', d, user.logout);
   console.log('Routes Loaded');
   fn();
 }
