@@ -30,6 +30,6 @@ exports.show = function(req, res){
   Note.findById(req.params.id, function(note){
     console.log('VVVVVVVVVV');
     console.log(note);
-    res.render('notes/show', {_id:req.params.id, title:note.title, body:note.body, dateCreated:note.dateCreated, tags:note.tags});
+    res.render('notes/show', {title:note.title, note:note});
   });
 };

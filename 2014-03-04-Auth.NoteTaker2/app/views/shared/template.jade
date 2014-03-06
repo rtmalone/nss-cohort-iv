@@ -22,6 +22,8 @@ html(class='no-js', lang='en')
           li: a(href="/") Home
           li:divider
           if user
+            li: a(href='/notes') Notes
+            li: divider
             li.has-dropdown
               a(href="#")= user.email
               ul.dropdown
