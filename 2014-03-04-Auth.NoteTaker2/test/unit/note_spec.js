@@ -111,5 +111,29 @@ describe('Note', function(){
     });
   });
 
+  describe('findById', function(){
+      it('should find a note by id', function(done){
+        var id = n4._id.toString();
+        Note.findById(id, function(note){
+
+          expect(note.title).to.be.equal('Lift');
+          expect(note.body).to.be.equal('Get swolled up with weights');
+          done();
+        });
+      });
+    });
+
+  describe('deleteNote', function(){
+    it('should delete note from db', function(done){
+      var id = n4._id.toString();
+      Note.deleteNote(id, function(count){
+        Note.findById(id, function(note){
+          expect(count).to.equal(1);
+          expect(note).to.equal(null);
+          done();
+        });
+      });
+    });
+  });
 
 });

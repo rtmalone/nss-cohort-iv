@@ -22,7 +22,8 @@ html(class='no-js', lang='en')
           li: a(href="/") Home
           li:divider
           if user
-            li.has-dropdown: a(href="#")= user.email
+            li.has-dropdown
+              a(href="#")= user.email
               ul.dropdown
                 li: a(href="/notes/new") New Note
                 li: a(href="#") Account
@@ -42,7 +43,7 @@ html(class='no-js', lang='en')
         block content
 
     script(src='/js/vendor/jquery.js')
-    script(src='/js/vendor/foundation.js')
+    script(src='/js/vendor/foundation.min.js')
     script(src='/js/vendor/lodash.js')
     script(src='/js/vendor/moment.js')
     script(src='/js/source/main.js')

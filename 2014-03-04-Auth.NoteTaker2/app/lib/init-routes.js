@@ -19,10 +19,14 @@ function load(app, fn){
 
   app.get('/', d, home.index);
   app.get('/auth', d, user.auth);
-  app.get('/notes', d, notes.index);
   app.post('/register', d, user.register);
   app.post('/login', d, user.login);
   app.post('/logout', d, user.logout);
+  app.get('/notes', d, notes.index);
+  app.get('/notes/new', d, notes.new);
+  app.get('/notes/:id', d, notes.show);
+  app.post('/notes', d, notes.create);
+  app.delete('/notes/:id', d, notes.destroy);
   console.log('Routes Loaded');
   fn();
 }

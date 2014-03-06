@@ -27,3 +27,17 @@ Note.findByUserId = function(id, fn){
     fn(records);
   });
 };
+
+Note.findById = function(id, fn){
+  var _id = new Mongo.ObjectID(id);
+  notes.findOne({_id:_id}, function(err, record){
+    fn(record);
+  });
+};
+
+Note.deleteNote = function(id, fn){
+  var _id = new Mongo.ObjectID(id);
+  notes.remove({_id:_id}, function(err, count){
+    fn(count);
+  });
+};

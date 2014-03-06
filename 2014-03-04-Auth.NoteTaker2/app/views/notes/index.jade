@@ -1,4 +1,15 @@
 extends ../shared/template
 
 block content
-  h5 These yo notes, bitch
+
+  .row
+    .small-6.columns
+      h5= user.email
+    .small-6.columns
+      a(href='/notes/new'): .right.button.tiny.round New Note
+  .row
+    .small-12.columns
+      each note in notes
+        .note
+          .title: a(href='/notes/'+note._id)= note.title
+          .date= moment(note.dateCreated).format('MMM Do, YYYY')
