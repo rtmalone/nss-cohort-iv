@@ -29,14 +29,18 @@ Note.findByUserId = function(id, fn){
 };
 
 Note.findById = function(id, fn){
+  console.log('idididididid', id);
   var _id = new Mongo.ObjectID(id);
+  console.log('Mongo ID', _id);
   notes.findOne({_id:_id}, function(err, record){
+    console.log('yyyyyyyyyyyyy');
+    console.log(record);
     fn(record);
   });
 };
 
 Note.deleteNote = function(id, fn){
-  var _id = new Mongo.ObjectID(id);
+  var _id = Mongo.ObjectID(id);
   notes.remove({_id:_id}, function(err, count){
     fn(count);
   });

@@ -3,8 +3,7 @@
 var Note = require('../models/note');
 
 exports.index = function(req, res){
-  Note.findByUserId(req.session.userID, function(notes){
-    console.log('this is the records being sent back', notes);
+  Note.findByUserId(req.session.userId, function(notes){
     res.render('notes/index', {title: 'Notes', notes:notes});
   });
 };
@@ -29,6 +28,8 @@ exports.destroy = function(req, res){
 
 exports.show = function(req, res){
   Note.findById(req.params.id, function(note){
-    res.render('notes/show', {title:note.title, body:note.body, dateCreated:note.dateCreated, tags:note.tags});
+    console.log('VVVVVVVVVV');
+    console.log(note);
+    res.render('notes/show', {_id:req.params.id, title:note.title, body:note.body, dateCreated:note.dateCreated, tags:note.tags});
   });
 };

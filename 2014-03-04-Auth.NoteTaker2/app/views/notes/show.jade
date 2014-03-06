@@ -3,7 +3,7 @@ extends ../shared/template
 block content
   .row
     .small-12.colums
-      form(action=i'/notes/'+note._id, type='hidden', name='_method', value='delete')
+      form.form(action='/notes/'+note._id, type='hidden', name='_method', value='delete')
         h1= note.title
         h5= moment(note.dateCreated).format('MMM Do, YYYY')
         h3= note.body
@@ -12,3 +12,5 @@ block content
   .row
     .small-12.columns
       button.tiny.radius.alert Delete
+
+  script(src='/js/vendor/moment.js')

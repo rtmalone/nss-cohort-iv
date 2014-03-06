@@ -10,7 +10,7 @@ html(class='no-js', lang='en')
     link(rel='stylesheet', href='/less/app.css')
     script(src='/js/vendor/modernizr.js')
   body
-    nav.top-bar
+    nav.top-bar(data-topbar)
       ul.title-area
         li.name
           h1: a(href="/") Note II
@@ -30,14 +30,14 @@ html(class='no-js', lang='en')
                 li: a(href="#") Settings
             li.has-form
               form(action='/logout', method="post")
-                button.tiny.radius.button Logout
+                button.tiny.radius.button.alert Logout
           else
             li: a(href="/auth") Login/Register
 
 
     .row
       .small-12.columns
-        h1=title
+        h1= title
     .row
       .small-12.columns
         block content
@@ -47,4 +47,3 @@ html(class='no-js', lang='en')
     script(src='/js/vendor/lodash.js')
     script(src='/js/vendor/moment.js')
     script(src='/js/source/main.js')
-

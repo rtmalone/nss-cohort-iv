@@ -12,4 +12,7 @@ block content
       each note in notes
         .note
           .title: a(href='/notes/'+note._id)= note.title
-          .date= moment(note.dateCreated).format('MMM Do, YYYY')
+          .date= moment(note.dateCreated).calendar()
+          .tags: a(href='#')= note.tags
+
+  script(src='/js/vendor/moment.js')

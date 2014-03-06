@@ -3,7 +3,7 @@ extends ../shared/template
 block content
   .row
     .small-6.columns
-      form#loginform(action='/register', method='post')
+      form.form(action='/register', method='post')
         fieldset
           legend Register
           .row
@@ -18,7 +18,7 @@ block content
             .small-12.columns
               button.tiny.radius.alert Register
     .small-6.columns
-      form#loginform(action='/login', method='post')
+      form.form(action='/login', method='post')
         fieldset
           legend Login
           .row

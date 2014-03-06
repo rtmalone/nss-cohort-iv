@@ -12,6 +12,7 @@ var initRoutes = require('./lib/init-routes');
 var lookupUser = require('./lib/lookup-user');
 var bounceUser = require('./lib/bounce-user');
 
+app.locals.moment = require('moment');
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 

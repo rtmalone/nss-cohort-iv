@@ -4,7 +4,7 @@ var User = require('../models/user');
 //var users = global.nss.db.collection('users');
 
 exports.auth = function(req, res){
-  res.render('users/auth', {title: 'User Authentication'});
+  res.render('users/auth', {title: 'Login or Register'});
 };
 
 exports.register = function(req, res){
@@ -26,7 +26,7 @@ exports.login = function(req, res){
       req.session.regenerate(function(){
         req.session.userId = user._id.toString();  // stores user id in Redis and associates with a cookie
         req.session.save(function(){
-          res.redirect('/');
+          res.redirect('/notes');
         });
       });
     }else{
